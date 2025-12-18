@@ -1,7 +1,7 @@
 ﻿@page "/products"
 @layout ProductLayout
-@using workshop08.models
-@using workshop08.Components
+@using Workshop_8.models
+@using Workshop_8.Components
 
 <div>
     <h1>Products</h1>
@@ -19,7 +19,7 @@
 }
 
 @code {
-    private List<workshop08.models.Product> products = new()
+    private List<Workshop_8.models.Product> products = new()
     {
         new() { Name="Laptop", Price=80000, Likes=120},
         new() { Name="Phone", Price=50000, Likes=200 },

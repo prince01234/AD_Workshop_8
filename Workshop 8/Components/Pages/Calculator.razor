@@ -1,0 +1,38 @@
+﻿@page "/calculator"
+
+<h3>Simple Calculator</h3>
+
+<div>
+    <input type="number" @bind="Number1" placeholder="Enter first number" />
+    <input type="number" @bind="Number2" placeholder="Enter second number" />
+</div>
+
+<div style="margin-top:10px;">
+    <button @onclick="Add">Add (+)</button>
+    <button @onclick="Subtract">Subtract (-)</button>
+    <button @onclick="Multiply">Multiply (×)</button>
+    <button @onclick="Divide">Divide (÷)</button>
+</div>
+
+<h4>Result: @Result</h4>
+
+@code {
+    // Two-way binding variables
+    private double Number1 { get; set; }
+    private double Number2 { get; set; }
+
+    // Result
+    private double Result { get; set; }
+
+    // Event handling for buttons
+    private void Add() => Result = Number1 + Number2;
+    private void Subtract() => Result = Number1 - Number2;
+    private void Multiply() => Result = Number1 * Number2;
+    private void Divide()
+    {
+        if (Number2 != 0)
+            Result = Number1 / Number2;
+        else
+            Result = double.NaN; 
+    }
+}

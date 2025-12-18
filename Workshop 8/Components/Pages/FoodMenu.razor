@@ -1,0 +1,46 @@
+﻿@page "/foodmenu"
+@using Workshop_8.Components
+<h3>Food Menu</h3>
+
+<div class="mb-3">
+    <button class="btn btn-primary me-2" @onclick="SortByPrice">Sort by Price</button>
+    <button class="btn btn-secondary" @onclick="SortByName">Sort by Name</button>
+</div>
+
+<div class="d-flex flex-wrap">
+    @foreach (var item in items)
+    {
+        <ItemCard Name="@item.Name" Ingredients="@item.Ingredients" Price="@item.Price" />
+    }
+</div>
+
+@code {
+    // List of food items
+    private List<Item> items = new()
+    {
+        new Item { Name = "Pizza", Ingredients = "Cheese, Tomato, Olives", Price = 250 },
+        new Item { Name = "Burger", Ingredients = "Bun, Patty, Lettuce, Cheese", Price = 150 },
+        new Item { Name = "Pasta", Ingredients = "Pasta, Tomato Sauce, Cheese", Price = 200 },
+        new Item { Name = "Sandwich", Ingredients = "Bread, Veggies, Cheese", Price = 100 },
+    };
+
+    // Item class defined locally
+    public class Item
+    {
+        public string Name { get; set; } = "";
+        public string Ingredients { get; set; } = "";
+        public decimal Price { get; set; }
+    }
+
+    // Sort items by Price (ascending)
+    private void SortByPrice()
+    {
+        items = items.OrderBy(item => item.Price).ToList();
+    }
+
+    // Sort items by Name (alphabetically)
+    private void SortByName()
+    {
+        items = items.OrderBy(item => item.Name).ToList();
+    }
+}
