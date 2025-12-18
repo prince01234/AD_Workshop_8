@@ -1,0 +1,30 @@
+﻿@page "/products"
+@layout ProductLayout
+@using workshop08.models
+@using workshop08.Components
+
+<div>
+    <h1>Products</h1>
+    <ul>
+        <li>Samsung S24 Ultra</li>
+        <li>Oneplus Nord N30</li>
+        <li>Xiaomi 17</li>
+    </ul>
+</div>
+<h2>Products</h2>
+
+@foreach (var product in products)
+{
+    <ProductCard Product="product" />
+}
+
+@code {
+    private List<workshop08.models.Product> products = new()
+    {
+        new() { Name="Laptop", Price=80000, Likes=120},
+        new() { Name="Phone", Price=50000, Likes=200 },
+        new() { Name="Keyboard", Price=2500, Likes=60 },
+        new() { Name="Mouse", Price=1500, Likes=45},
+        new() { Name="Headphones", Price=4000, Likes=90}
+    };
+}

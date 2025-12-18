@@ -1,0 +1,12 @@
+﻿@using workshop08.models
+
+<div class="product-card">
+    <h3>@Product.Name</h3>
+    <p>Price: ₹@Product.Price</p>
+    <p>❤️ @Product.Likes</p>
+</div>
+
+@code {
+    [Parameter]
+    public workshop08.models.Product Product { get; set; } = default!;
+}
